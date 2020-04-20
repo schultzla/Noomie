@@ -7,12 +7,16 @@ export default class MatchBanner extends Component {
 
   constructor(props) {
     super(props)
+
+    this.state = {
+      data: this.props.data
+    }
   }
 
   render() {
     return (
-      <TouchableOpacity activeOpacity={.7} onPressOut={this.chat}>
-        <View style={styles.card}>
+      <TouchableOpacity activeOpacity={.7} onPress={this.chat} onLongPress={this.selectItem} >
+        <View style={this.props.item.isSelect ? styles.cardSelected : styles.card}>
           <View style={styles.row}>
             <View style={styles.leftContainer}>
               <Image style={styles.avatar} source={this.props.item.pic} />
@@ -35,6 +39,27 @@ export default class MatchBanner extends Component {
     );
   }
 
+  selectItem = () => {
+    const index = this.state.data.findIndex(item => item.name === this.props.item.name)
+    this.props.item.isSelect = !this.props.item.isSelect
+    this.state.data[index] = this.props.item
+
+    this.setState({
+      data: this.state.data
+    })
+    
+    var hasSelected = false
+    var count = 0
+    for (var i = 0; i < this.state.data.length; i++) {
+      if (this.state.data[i].isSelect === true) {
+        hasSelected = true
+        count = count + 1
+      }
+    }
+
+    this.props.update(this.state.data, hasSelected, count)
+  }
+
   chat = () => {
     RootNavigation.navigate("Chat", {
       item: this.props.item
@@ -50,6 +75,26 @@ export default class MatchBanner extends Component {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    marginLeft: 10,
+    marginRight: 10,
+
+    elevation: 3,
+  }, container: {
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+  },
+  cardSelected: {
+    backgroundColor: '#FB6567',
     borderRadius: 5,
     padding: 10,
     marginBottom: 10,

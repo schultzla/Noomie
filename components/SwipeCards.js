@@ -5,12 +5,12 @@ import * as RootNavigation from './RootNavigation.js';
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 const matches = [
-  { name: "Greg Smith", pic: require("../images/profile/guy1.jpeg"), percent: .78, age: 24, location: "New York, NY" },
-  { name: "Beatrice Roach", pic: require("../images/profile/girl1.jpeg"), percent: .71, age: 20, location: "New York, NY" },
-  { name: "Jackson McDonald", pic: require("../images/profile/guy2.jpeg"), percent: .94, age: 27, location: "Seattle, WA" },
-  { name: "Kendra White", pic: require("../images/profile/girl2.jpeg"), percent: .80, age: 26, location: "San Francisco, CA" },
-  /*{ name: "Benjamin Baxtor", pic: require("../images/profile/guy3.jpeg"), percent: .53, age: 29, location: "Chicago, IL" },
-  { name: "Jennifer Grove", pic: require("../images/profile/girl3.jpeg"), percent: .83, age: 21, location: "Washington D.C." },*/
+  { isSelect: false, name: "Greg Smith", pic: require("../images/profile/guy1.jpeg"), percent: .78, age: 24, location: "New York, NY" },
+  { isSelect: false, name: "Beatrice Roach", pic: require("../images/profile/girl1.jpeg"), percent: .71, age: 20, location: "New York, NY" },
+  { isSelect: false, name: "Jackson McDonald", pic: require("../images/profile/guy2.jpeg"), percent: .94, age: 27, location: "Seattle, WA" },
+  { isSelect: false, name: "Kendra White", pic: require("../images/profile/girl2.jpeg"), percent: .80, age: 26, location: "San Francisco, CA" },
+  /*{ isSelect: false, name: "Benjamin Baxtor", pic: require("../images/profile/guy3.jpeg"), percent: .53, age: 29, location: "Chicago, IL" },
+  { isSelect: false, name: "Jennifer Grove", pic: require("../images/profile/girl3.jpeg"), percent: .83, age: 21, location: "Washington D.C." },*/
 ]
 
 class NoMoreCards extends Component {
@@ -145,7 +145,7 @@ export default class extends React.Component {
         return (
           <Animated.View
             {...this.PanResponder.panHandlers}
-            key={item.id} style={[this.rotateAndTranslate, { backgroundColor: "#fff", height: SCREEN_HEIGHT - 180, width: SCREEN_WIDTH, padding: 10, position: 'absolute' }]}>
+            key={item.id} style={[this.rotateAndTranslate, {  height: SCREEN_HEIGHT - 180, width: SCREEN_WIDTH, padding: 10, position: 'absolute' }]}>
             <Animated.View style={{ opacity: this.likeOpacity, transform: [{ rotate: '-30deg' }], position: 'absolute', top: 50, left: 40, zIndex: 1000 }}>
               <Text style={{ borderWidth: 1, borderColor: 'green', color: 'green', fontSize: 32, fontWeight: '800', padding: 10 }}>LIKE</Text>
 
@@ -176,7 +176,7 @@ export default class extends React.Component {
         return (
           <Animated.View
 
-            key={item.id} style={[{backgroundColor: "#fff",
+            key={item.id} style={[{
               height: SCREEN_HEIGHT - 180, width: SCREEN_WIDTH, padding: 10, position: 'absolute'
             }]}>
             <Animated.View style={{ opacity: 0, transform: [{ rotate: '-30deg' }], position: 'absolute', top: 50, left: 40, zIndex: 1000 }}>

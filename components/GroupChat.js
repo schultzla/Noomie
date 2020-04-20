@@ -3,7 +3,7 @@ import { TouchableOpacity, Image, Text, TextInput, Button, StyleSheet, View, Key
 import { FlatList } from 'react-native-gesture-handler';
 import Message from './Message';
 
-export default class Chat extends Component {
+export default class GroupChat extends Component {
 
   constructor(props) {
     super(props)
@@ -39,13 +39,24 @@ export default class Chat extends Component {
     this.listRef.scrollToEnd(true)
   }
 
+  membersList() {
+    return this.props.route.params.items.map((item) => {
+      return (
+        <View style={{alignItems: 'center', padding: 20 }}>
+          <Image style={styles.avatar} source={item.pic} />
+          <Text>{item.name.split(' ')[0]}</Text>
+        </View>
+      );
+    })
+  }
+
   render() {
     return (
       <View style={styles.view}>
-        <View style={{ alignItems: 'center', marginBottom: '3%' }}>
-          <Image style={styles.avatar} source={this.props.route.params.item.pic} />
-          <Text>{this.props.route.params.item.name.split(' ')[0]}</Text>
+        <View style={styles.row}>
+          {this.membersList()}
         </View>
+
         <FlatList
           ref={(list) => this.listRef = list}
           data={this.state.messages}
@@ -112,6 +123,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#FB6567',
     padding: 10,
     width: 100
+  },
+  row: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+    marginTop: '2%'
   },
 
 })
