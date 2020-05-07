@@ -9,10 +9,12 @@ const matches = [
   { isSelect: false, name: "Beatrice Roach", pic: require("../images/profile/girl1.jpeg"), percent: .71, age: 20, location: "New York, NY" },
   { isSelect: false, name: "Jackson McDonald", pic: require("../images/profile/guy2.jpeg"), percent: .94, age: 27, location: "Seattle, WA" },
   { isSelect: false, name: "Kendra White", pic: require("../images/profile/girl2.jpeg"), percent: .80, age: 26, location: "San Francisco, CA" },
-  /*{ isSelect: false, name: "Benjamin Baxtor", pic: require("../images/profile/guy3.jpeg"), percent: .53, age: 29, location: "Chicago, IL" },
-  { isSelect: false, name: "Jennifer Grove", pic: require("../images/profile/girl3.jpeg"), percent: .83, age: 21, location: "Washington D.C." },*/
+  { isSelect: false, name: "Benjamin Baxtor", pic: require("../images/profile/guy3.jpeg"), percent: .53, age: 29, location: "Chicago, IL" },
+  { isSelect: false, name: "Jennifer Grove", pic: require("../images/profile/girl3.jpeg"), percent: .83, age: 21, location: "Washington D.C." },
 ]
 
+/* Animations for swipable cards were taken from an online tutorial
+*/
 class NoMoreCards extends Component {
   constructor(props) {
     super(props);

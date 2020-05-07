@@ -23,7 +23,7 @@ export default class App extends Component {
     return (
       <NavigationContainer ref={navigationRef}>
         <Stack.Navigator 
-          initialRouteName='Matches'>
+          initialRouteName='Login'>
           <Stack.Screen name="Login" options={{headerShown: false}} component={Login} />
           <Stack.Screen name="Survey" options={{headerShown: false}} component={Survey} />
           <Stack.Screen name="Matches" options={{headerShown: false}} component={Matches} />
