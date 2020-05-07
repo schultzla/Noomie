@@ -2,6 +2,10 @@
 
 You will need Android Studio and an android simulator installed in Android Studio. Linked below is the full build tutorial from Facebook about how to build a React Native app.
 
+https://reactnative.dev/docs/environment-setup
+
+Use the React Native CLI Quickstart option, along with your OS and desired mobile OS to simulate (this project was built using Windows and an Android simulator, no other options have been tested, but they should theoretically work)
+
 A quick rundown of the steps is here
 
 1. Clone the repo
